@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS forms(idform INTEGER PRIMARY KEY AUTOINCREMENT, id TEXT, name TEXT, submitTo TEXT, RTI TEXT, RTF TEXT, RLI TEXT, RLF TEXT, encoding TEXT, label1 TEXT, label2 TEXT, iconType TEXT, iconValue TEXT, options TEXT);
+
+CREATE TABLE IF NOT EXISTS topics(idtopic INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, label TEXT, forms_idforms INTEGER, FOREIGN KEY(forms_idforms) REFERENCES forms(idform));
+
+CREATE TABLE IF NOT EXISTS fields(idfield INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, label1 TEXT, label2 TEXT, type TEXT, required TEXT, visible TEXT, enabled TEXT, nameLink TEXT, requiredExpression TEXT, visibleExpression TEXT, orientation TEXT, val TEXT, def TEXT, inputMethod TEXT, inputFormat TEXT, backgrund_color TEXT, quality TEXT, previewWidth TEXT, previewHeigth TEXT, imageWidht TEXT, imageHeigth TEXT, topics_idtopics INTEGER, topics_forms_idforms INTEGER, FOREIGN KEY(topics_idtopics) REFERENCES topics(idtopic), FOREIGN KEY(topics_forms_idforms) REFERENCES topics(forms_idforms));

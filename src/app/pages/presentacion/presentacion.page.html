@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>XML creator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <h2>Apoyo para crear platillas para formilarios Dynkolleck</h2>
+    <ion-button expand="block" (click)="crearNuevo()">Empezar Nuevo</ion-button>
+  </div>
+
+  <div *ngFor="let fr of fm">
+    <ion-item button [routerLink]="['/', 'form', fr.idform]">
+      <ion-label>
+        <h2>{{ fr.id }}</h2>
+        <p>{{ fr.name }}</p>
+      </ion-label>
+    </ion-item>
+  </div>
+
+</ion-content>

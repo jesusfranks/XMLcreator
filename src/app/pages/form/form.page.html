@@ -1,0 +1,170 @@
+<ion-header>
+<ion-toolbar>
+    <ion-title>Crea apartado form</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button (click)="delete()">
+            <ion-icon name="trash"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+
+        <ion-list *ngIf="frm">
+
+        <!--<ion-list-header>
+            <ion-label>Formulatio template: {{ formulario.valid }} </ion-label>
+        </ion-list-header>-->
+
+        <ion-item>
+            <ion-label position="floating">ID<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text"
+                        name="formId"
+                        [(ngModel)]="frm.id"
+                        required>
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Name<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text"
+                        name="formName"
+                        [(ngModel)]="frm.name"
+                        required>
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Submit To<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text"
+                        name="submitTo"
+                        [(ngModel)]="frm.submitTo"
+                        required>
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Required_time_initial</ion-label>
+                <ion-radio-group [(ngModel)]="frm.RTI" name="RTI">
+                <ion-item>
+                    <ion-label>YES</ion-label>
+                    <ion-radio type="radio" name="RTI" value="Y"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>NO</ion-label>
+                    <ion-radio type="radio" name="RTI" value="N"></ion-radio>
+                </ion-item>
+            </ion-radio-group>  
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Required_time_Final</ion-label>
+                <ion-radio-group [(ngModel)]="frm.RTF" name="RTF">
+                <ion-item>
+                    <ion-label>YES</ion-label>
+                    <ion-radio type="radio" name="RTF" value="Y"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>NO</ion-label>
+                    <ion-radio type="radio" name="RTF" value="N"></ion-radio>
+                </ion-item>
+            </ion-radio-group>  
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Required_location_initial</ion-label>
+                <ion-radio-group [(ngModel)]="frm.RLI" name="RLI">
+                <ion-item>
+                    <ion-label>YES</ion-label>
+                    <ion-radio type="radio" name="RLI" value="Y"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>NO</ion-label>
+                    <ion-radio type="radio" name="RLI" value="N"></ion-radio>
+                </ion-item>
+            </ion-radio-group>  
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Required_location_final</ion-label>
+                <ion-radio-group [(ngModel)]="frm.RLF" name="RLF">
+                <ion-item>
+                    <ion-label>YES</ion-label>
+                    <ion-radio type="radio" name="RLF" value="Y"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>NO</ion-label>
+                    <ion-radio type="radio" name="RLF" value="N"></ion-radio>
+                </ion-item>
+            </ion-radio-group>  
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Encoding<ion-text color="danger">*</ion-text></ion-label>
+            <ion-input type="text"
+                        name="encoding"
+                        [(ngModel)]="frm.encoding"
+                        required>
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Label 1</ion-label>
+            <ion-input type="text"
+                        name="label1"
+                        [(ngModel)]="frm.label1">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Label 2</ion-label>
+            <ion-input type="text"
+                        name="label2"
+                        [(ngModel)]="frm.label2">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Icon_type</ion-label>
+            <ion-input type="text"
+                        name="iconType"
+                        [(ngModel)]="frm.iconType">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Icon_value</ion-label>
+            <ion-input type="text"
+                        name="iconValue"
+                        [(ngModel)]="frm.iconValue">
+            </ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Options</ion-label>
+            <ion-input type="text"
+                    name="options"
+                    [(ngModel)]="frm.options">
+            </ion-input>
+        </ion-item>
+
+        <ion-button expand="block" class="margin20" [disabled]="formulario.invalid"
+                    (click)="saveForm()" [routerLink]="['/', 'topic', frm.idform]">
+                Continuar a Topics
+        </ion-button>
+
+        <ion-button [routerLink]="['/', 'conca', frm.idform]">Generar XML</ion-button>
+        
+        </ion-list>
+
+    </form>
+
+
+</ion-content>
+

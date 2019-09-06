@@ -1,0 +1,134 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Añadir Field</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button (click)="delete()">
+            <ion-icon name="trash"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+
+    <ion-list *ngIf="fie">
+
+      <ion-item>
+          <ion-label position="floating">Name<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input type="text"
+                    name="name"
+                    [(ngModel)]="fie.name"
+                    required>
+          </ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Label 1<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input type="text"
+                    name="label1"
+                    [(ngModel)]="fie.label1"
+                    required>
+          </ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Label 2</ion-label>
+          <ion-input type="text"
+                    name="label2"
+                    [(ngModel)]="fie.label2">
+          </ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Type</ion-label>
+        <ion-select interface="popover" name="type" [(ngModel)]="fie.type">
+          <ion-select-option type="select" name="type" value="radio_group">radio_group</ion-select-option>
+          <ion-select-option type="select" name="type" value="text">text</ion-select-option>
+          <ion-select-option type="select" name="type" value="display">display</ion-select-option>
+          <ion-select-option type="select" name="type" value="photo">photo</ion-select-option>
+          <ion-select-option type="select" name="type" value="sign">sign</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Required</ion-label>
+              <ion-radio-group [(ngModel)]="fie.required" name="required">
+              <ion-item>
+                  <ion-label>YES</ion-label>
+                  <ion-radio type="radio" name="required" value="Y"></ion-radio>
+              </ion-item>
+              <ion-item>
+                  <ion-label>NO</ion-label>
+                  <ion-radio type="radio" name="required" value="N"></ion-radio>
+              </ion-item>
+          </ion-radio-group>  
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Visible</ion-label>
+              <ion-radio-group [(ngModel)]="fie.visible" name="visible">
+              <ion-item>
+                  <ion-label>YES</ion-label>
+                  <ion-radio type="radio" name="visible" value="Y"></ion-radio>
+              </ion-item>
+              <ion-item>
+                  <ion-label>NO</ion-label>
+                  <ion-radio type="radio" name="visible" value="N"></ion-radio>
+              </ion-item>
+          </ion-radio-group>  
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Enabled</ion-label>
+            <ion-radio-group [(ngModel)]="fie.enabled" name="enabled">
+                <ion-item>
+                    <ion-label>YES</ion-label>
+                    <ion-radio type="radio" name="enabled" value="Y"></ion-radio>
+                </ion-item>
+                <ion-item>
+                    <ion-label>NO</ion-label>
+                    <ion-radio type="radio" name="enabled" value="N"></ion-radio>
+                </ion-item>
+            </ion-radio-group>  
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Name_link</ion-label>
+          <ion-input type="text"
+                    name="nameLink"
+                    [(ngModel)]="fie.nameLink">
+          </ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Required_expression</ion-label>
+          <ion-input type="text"
+                    name="requiredExpression"
+                    [(ngModel)]="fie.requiredExpression">
+          </ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="floating">Visible_expression</ion-label>
+          <ion-input type="text"
+                    name="visibleExpression"
+                    [(ngModel)]="fie.visibleExpression">
+          </ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="margin20"
+                type="submit" [disabled]="formulario.invalid" 
+                (click)="saveChanges()" [routerLink]="['/', fie.type, fie.idfield]">
+                Opciones Especiales por tipo
+      </ion-button>
+
+    </ion-list>
+
+  </form>
+
+</ion-content>

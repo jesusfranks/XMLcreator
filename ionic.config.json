@@ -1,0 +1,7 @@
+{
+  "name": "CrearXML",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

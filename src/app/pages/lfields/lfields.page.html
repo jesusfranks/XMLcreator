@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Añadir fields</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+          <ion-button (click)="delete()">
+              <ion-icon name="trash"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-button expand="block" (click)="crearNuevo()">Crear nuevo field</ion-button>
+
+    <div *ngFor="let f of fie">
+      <div *ngIf="f.topics_idtopics == idparamt">
+          <ion-item button  [routerLink]="['/', 'field', f.idfield]">
+            <ion-label>
+              <h2>{{ f.name }}</h2>
+              <p>Label: {{f.label1}}, tipo: {{ f.type }}</p>
+            </ion-label>
+          </ion-item>
+      </div>
+    </div>
+  
+    <ion-button [routerLink]="['/', 'topic', idparamf]">Terminé de agregar Elementos</ion-button>
+  
+  </ion-list>
+
+</ion-content>

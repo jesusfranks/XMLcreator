@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Opciones para field (sign)</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+  <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+  
+    <ion-list *ngIf=fie>
+  
+      <ion-item>
+          <ion-label>Orientation</ion-label>
+              <ion-radio-group [(ngModel)]="fie.orientation" name="enabled">
+              <ion-item>
+                  <ion-label>Vertical</ion-label>
+                  <ion-radio type="radio" name="enabled" value="vertical"></ion-radio>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Horizontal</ion-label>
+                  <ion-radio type="radio" name="enabled" value="horizontal"></ion-radio>
+              </ion-item>
+          </ion-radio-group>  
+      </ion-item>
+        
+      <ion-item>
+        
+        <ion-label>Quality</ion-label>
+        <ion-range (ionChange)="cambioRangoQuality($event)"
+                    min="1"
+                    max="100"
+                    name="quality"
+                    type="range"
+                    [(ngModel)]="fie.quality"
+                    color="tertiary"
+                    pin="true">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">100</ion-label>
+        </ion-range>
+        <ion-label>{{ fie.quality }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Preview_width</ion-label>
+        <ion-range (ionChange)="cambioRangoPW($event)"
+                    min="1"
+                    max="1080"
+                    name="PreviewWidth"
+                    type="range"
+                    [(ngModel)]="fie.previewWidth"
+                    color="tertiary"
+                    pin="true">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">1080</ion-label>
+        </ion-range>
+        <ion-label>{{ fie.previewWidth }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Preview_height</ion-label>
+        <ion-range (ionChange)="cambioRangoPH($event)"
+                    min="1"
+                    max="1080"
+                    name="previewHeight"
+                    type="range"
+                    [(ngModel)]="fie.previewHeigth"
+                    color="tertiary"
+                    pin="true">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">1080</ion-label>
+        </ion-range>
+        <ion-label>{{ fie.previewHeigth }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>image_width</ion-label>
+        <ion-range (ionChange)="cambioRangoIW($event)"
+                    min="1"
+                    max="1080"
+                    name="imageWidth"
+                    type="range"
+                    [(ngModel)]="fie.imageWidht"
+                    color="tertiary"
+                    pin="true">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">1080</ion-label>
+        </ion-range>
+        <ion-label>{{ fie.imageWidht }}</ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Image_height</ion-label>
+        <ion-range (ionChange)="cambioRangoIH($event)"
+                    min="1"
+                    max="1080"
+                    name="imageHeight"
+                    type="range"
+                    [(ngModel)]="fie.imageHeigth"
+                    color="tertiary"
+                    pin="true">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">1080</ion-label>
+        </ion-range>
+        <ion-label>{{ fie.imageHeigth }}</ion-label>
+      </ion-item>
+
+      <ion-button expand="block" class="margin20"
+                type="submit" [disabled]="formulario.invalid"
+                (click)="saveChanges()" [routerLink]="['/', 'lfields', fie.topics_forms_idforms, fie.topics_idtopics]">
+                Finalizar field
+      </ion-button>
+      
+    </ion-list>
+  
+  </form>
+  
+</ion-content>
+
+

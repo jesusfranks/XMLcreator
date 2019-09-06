@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Finalizar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+    <ion-list>
+      <ion-item>
+          <ion-label position="floating">Email<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input type="email"
+                      name="inemail"
+                      [(ngModel)]="inemail"
+                      pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                      required>
+          </ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" class="margin20" 
+                    [disabled]="formulario.invalid"
+                    (click)="sendEmail()">
+                    enviar
+    </ion-button>
+
+  </form>
+
+</ion-content>
+
+

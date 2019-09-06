@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Opciones para field (text)</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <form #formulario="ngForm" (ngSubmit)="onSubmitTemplate()">
+
+        <ion-list *ngIf=fie>
+
+            <ion-item>
+                <ion-label>Orientation</ion-label>
+                    <ion-radio-group [(ngModel)]="fie.orientation" name="enabled">
+                    <ion-item>
+                        <ion-label>Vertical</ion-label>
+                        <ion-radio type="radio" name="enabled" value="vertical"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Horizontal</ion-label>
+                        <ion-radio type="radio" name="enabled" value="horizontal"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>  
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Input_method<ion-text color="danger">*</ion-text></ion-label>
+                <ion-input type="text"
+                        name="inputMethod"
+                        [(ngModel)]="fie.inputMethod"
+                        required>
+                </ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Input_format<ion-text color="danger">*</ion-text></ion-label>
+                <ion-input type="text"
+                        name="inputFormat"
+                        [(ngModel)]="fie.inputFormat"
+                        required>
+                </ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Default</ion-label>
+                <ion-input type="number"
+                        name="default"
+                        [(ngModel)]="fie.def">
+                </ion-input>
+            </ion-item>
+            
+            <ion-button expand="block" class="margin20"
+                        type="submit" [disabled]="formulario.invalid"
+                        (click)="saveChanges()" [routerLink]="['/', 'lfields', fie.topics_forms_idforms, fie.topics_idtopics]">
+                        Finalizar field
+            </ion-button>
+
+        </ion-list>
+
+    </form>
+
+</ion-content>
